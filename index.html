@@ -2,38 +2,235 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; font-src 'self'; img-src 'self'; base-uri 'none'; form-action 'none'">
+    <meta name="referrer" content="no-referrer">
+    <title>Patrick Cruz, backend and security developer</title>
+    <meta name="description" content="Patrick Cruz is a backend and security developer completing a BS in Information Technology, major in Computer Security, at PHINMA University of Pangasinan. Based in Pangasinan, Philippines, and available for on-site internships and entry-level roles.">
+    <link rel="canonical" href="https://aerythox.github.io/">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://aerythox.github.io/">
+    <meta property="og:title" content="Patrick Cruz, backend and security developer">
+    <meta property="og:description" content="Backend and security developer based in Pangasinan, Philippines. Available for on-site internships and entry-level roles.">
+    <meta property="og:image" content="https://aerythox.github.io/assets/img/social-preview.png">
+    <meta property="og:image:alt" content="Patrick Cruz, backend and security developer">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preload" href="assets/fonts/ibm-plex-sans-latin-600-normal.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="style.css">
-    <title>Patrick Cruz's Portfolio</title>
+    <script src="script.js" defer></script>
 </head>
 <body>
-    <header>
-        <a href="" class="logo">Logo</a>
-        <nav>
-            <a href="#" class="active">Home</a>
-            <a href="#">Skills</a>
-            <a href="#">Education</a>
-            <a href="#">Contacts</a>
-        </nav>
-    </header>
-    <section class="home">
-        <div class="home-pfp">
-            <img src="Images\filler.png" alt="Picture of me">
-        </div>
-        <div class="home-content">
-            <h1>Patrick Cruz</h1>
-            <h3>Student</h3>
-            <p>
-                I am a student at University of Pangasinan, though I may still be inexperienced I am willing
-                and earger to learn more about this field.
-            </p>
-            <div class="social-icns">
-                <a href="https://www.linkedin.com/in/cruz-patrick0921/"><i class="fa-brands fa-linkedin"></i></a>
-                <a href="https://github.com/Aerythox"><i class="fa-brands fa-github"></i></a>
-            </div>
-        </div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    </section>
+    <header class="site-header">
+        <div class="page site-header-inner">
+            <a class="monogram" href="#top" aria-label="Patrick Cruz, back to top">PC</a>
+            <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+            <nav id="site-nav" class="site-nav" aria-label="Main">
+                <a href="#work">Work</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main">
+        <section id="top" class="hero page">
+            <div class="hero-top">
+                <h1 class="hero-name">Patrick Cruz</h1>
+                <img class="hero-photo" src="assets/img/patrick-cruz.jpg" width="391" height="391" alt="Portrait of Patrick Cruz">
+            </div>
+
+            <div class="hero-grid">
+                <div class="hero-intro">
+                    <p class="hero-role">Backend and security developer</p>
+                    <p class="hero-summary">
+                        I develop server-side applications and REST APIs, with a focus on application security.
+                        I am completing a BS in Information Technology, major in Computer Security, at PHINMA
+                        University of Pangasinan. Based in Pangasinan, Philippines, and available for on-site
+                        internships and entry-level roles.
+                    </p>
+                    <div class="hero-actions">
+                        <a class="button button-primary" href="#work">View work</a>
+                        <a class="button" href="resume.pdf">Download résumé</a>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://www.linkedin.com/in/cruz-patrick0921/" rel="noopener" aria-label="Patrick Cruz on LinkedIn">
+                            <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+                        </a>
+                        <a href="https://github.com/Aerythox" rel="noopener" aria-label="Patrick Cruz on GitHub">
+                            <svg viewBox="0 0 16 16" width="20" height="20" aria-hidden="true" focusable="false"><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
+                        </a>
+                    </div>
+                </div>
+
+                <section class="trace" aria-labelledby="trace-title">
+                    <h2 id="trace-title" class="trace-title">How an API evaluates a request</h2>
+                    <div class="trace-controls" role="group" aria-label="Choose a request">
+                        <button type="button" class="trace-option" data-trace="changed" aria-pressed="true">Tampered request</button>
+                        <button type="button" class="trace-option" data-trace="valid" aria-pressed="false">Valid request</button>
+                    </div>
+
+                    <div class="trace-case" data-trace-case="changed">
+                        <p class="trace-explain">An authenticated user changes the account number in the URL to access another user's records. The login is valid, so only the authorization check can stop the request.</p>
+                        <p class="trace-request"><code>GET /accounts/4822/statements</code></p>
+                        <ol class="trace-steps">
+                            <li><span class="step-name">Input validation</span><span class="step-detail">Account number is well formed</span><span class="step-status">Passed</span></li>
+                            <li><span class="step-name">Rate limit</span><span class="step-detail">Within the allowed limit</span><span class="step-status">Passed</span></li>
+                            <li><span class="step-name">Authentication</span><span class="step-detail">Valid signature, token not expired</span><span class="step-status">Passed</span></li>
+                            <li class="is-blocked"><span class="step-name">Authorization</span><span class="step-detail">Account 4822 belongs to another user</span><span class="step-status">Blocked</span></li>
+                            <li class="is-skipped"><span class="step-name">Database query</span><span class="step-detail">Not reached</span><span class="step-status">Not run</span></li>
+                        </ol>
+                        <p class="trace-result is-blocked"><code>403 Forbidden</code><span>Access denied. Attempt logged.</span></p>
+                    </div>
+
+                    <div class="trace-case" data-trace-case="valid">
+                        <p class="trace-explain">The same user requests their own account. All checks pass, and the query uses bound parameters so that input cannot alter it.</p>
+                        <p class="trace-request"><code>GET /accounts/4821/statements</code></p>
+                        <ol class="trace-steps">
+                            <li><span class="step-name">Input validation</span><span class="step-detail">Account number is well formed</span><span class="step-status">Passed</span></li>
+                            <li><span class="step-name">Rate limit</span><span class="step-detail">Within the allowed limit</span><span class="step-status">Passed</span></li>
+                            <li><span class="step-name">Authentication</span><span class="step-detail">Valid signature, token not expired</span><span class="step-status">Passed</span></li>
+                            <li><span class="step-name">Authorization</span><span class="step-detail">Account 4821 belongs to this user</span><span class="step-status">Passed</span></li>
+                            <li><span class="step-name">Database query</span><span class="step-detail">Parameterized query executed</span><span class="step-status">Passed</span></li>
+                        </ol>
+                        <p class="trace-result"><code>200 OK</code><span>Records returned.</span></p>
+                    </div>
+
+                    <p class="trace-note">Illustrative example. No data is sent to a server.</p>
+                </section>
+            </div>
+        </section>
+
+        <section id="work" class="section page" aria-labelledby="work-title">
+            <h2 id="work-title" class="section-title">Selected work</h2>
+            <div class="section-body">
+                <article class="project project-featured">
+                    <h3 class="project-name">HabiTrash</h3>
+                    <p class="project-meta">Capstone project, 2025 to 2026</p>
+                    <p class="project-summary">A smart waste bin that photographs each item, classifies it with AI, and sorts it into one of four compartments. Sensors track how full each compartment is, and authorized staff monitor the bins from a website and an Android app.</p>
+                    <dl class="facts">
+                        <div><dt>My role</dt><dd>AI developer and backend developer. I built the backend, the security layer, and the database, and contributed to the hardware. Teammates contributed frontend pages.</dd></div>
+                        <div><dt>Stack</dt><dd>React, Node.js, Express, MongoDB Atlas, Socket.IO, Python, FastAPI, PyTorch, Gemini API, TensorFlow Lite, Kotlin, ESP32, Raspberry Pi</dd></div>
+                        <div><dt>Source</dt><dd>Private repository. Walkthrough available on request.</dd></div>
+                    </dl>
+
+                    <div class="case-details">
+                        <div class="case-block case-block-wide">
+                            <h4>How it works</h4>
+                            <ol>
+                                <li>A student places an item on the tray, and a Raspberry Pi sends a photo to the AI server.</li>
+                                <li>The server runs SigLIP 2 models and asks the Gemini API at the same time.</li>
+                                <li>If both choose the same category, the arm sorts the item. If they disagree, the item is held on the tray until it is removed or rescanned.</li>
+                                <li>ESP32 sensors report how full each compartment is, and the backend sends live updates to staff on the website and app.</li>
+                            </ol>
+                        </div>
+
+                        <div class="case-block">
+                            <h4>Backend and database</h4>
+                            <ul>
+                                <li>Built the REST API with Node.js and Express, covering users, bins, scans, collections, notifications, and dashboard data.</li>
+                                <li>Designed the MongoDB database, with models for users, bins, sensor readings, scans, collections, notifications, refresh tokens, and audit logs.</li>
+                                <li>Sent live bin updates and alerts over Socket.IO, available only to signed-in clients.</li>
+                                <li>Implemented a full-bin lock: a compartment that stays full for three minutes locks the bin until it is emptied or unlocked by staff.</li>
+                            </ul>
+                        </div>
+
+                        <div class="case-block">
+                            <h4>Security</h4>
+                            <ul>
+                                <li>Built authentication with bcrypt password hashing, JWT access tokens, rotating refresh tokens, and role-based access control.</li>
+                                <li>Protected accounts with per-account login lockout, rate limiting, email OTP verification, reCAPTCHA, and input validation.</li>
+                                <li>Recorded security events in an audit log and blocked cross-site requests with an origin check.</li>
+                                <li>Authenticated device reports with a service key compared in constant time.</li>
+                                <li>Covered these protections with automated tests using Mocha and Supertest.</li>
+                            </ul>
+                        </div>
+
+                        <div class="case-block case-block-wide">
+                            <h4>AI and results</h4>
+                            <ul>
+                                <li>Combined SigLIP 2 models with the Gemini API, so an item is sorted automatically only when both agree.</li>
+                                <li>Added fallbacks: without Gemini, the SigLIP 2 models sort only at 0.60 confidence or higher. Without the AI server, the Raspberry Pi classifies items with its own TensorFlow Lite models.</li>
+                                <li>In a test on 18 real bin photos, 16 items were sorted correctly, 0 went to the wrong compartment, and 2 were held for review.</li>
+                                <li>The SigLIP 2 models alone reached 80.97% accuracy on 289 unseen images. With agreement required on those images, 63.3% were sorted correctly, 4.5% went to the wrong compartment, and 32.2% were held.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+
+                <div class="project-pair">
+                    <article class="project">
+                        <h3 class="project-name">WorkConnect</h3>
+                        <p class="project-meta">Academic team project, 2025</p>
+                        <p class="project-summary">A web-based job platform that connects job seekers with small and mid-sized companies looking for employees. The backend is built with Node.js and Express, with data stored in MongoDB.</p>
+                        <dl class="facts">
+                            <div><dt>My role</dt><dd>Backend contributor. Worked extensively on the server side of the platform.</dd></div>
+                            <div><dt>Stack</dt><dd>Node.js, Express.js, MongoDB</dd></div>
+                        </dl>
+                    </article>
+
+                    <article class="project">
+                        <h3 class="project-name">TaskConnect</h3>
+                        <p class="project-meta">Academic team project, 2025</p>
+                        <p class="project-summary">An Android application for hiring workers for short, small-scale tasks. Users register with a one-time code, post tasks with a budget and location, and accept open tasks, with each task's status and history tracked in the app.</p>
+                        <dl class="facts">
+                            <div><dt>My role</dt><dd>Backend contributor. Worked extensively on the PHP server side of the app.</dd></div>
+                            <div><dt>Stack</dt><dd>Kotlin, Android Studio, PHP</dd></div>
+                        </dl>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="section page" aria-labelledby="skills-title">
+            <h2 id="skills-title" class="section-title">Skills</h2>
+            <div class="section-body">
+                <dl class="facts facts-large">
+                    <div><dt>Backend</dt><dd>Node.js, Express.js, REST APIs, Socket.IO, FastAPI, PHP</dd></div>
+                    <div><dt>Security</dt><dd>JWT authentication, role-based access control, rate limiting, input validation, audit logging, Kali Linux, basic networking, Cisco Packet Tracer</dd></div>
+                    <div><dt>Data and AI</dt><dd>MongoDB, Mongoose, MySQL, phpMyAdmin, PyTorch, TensorFlow Lite, Gemini API</dd></div>
+                    <div><dt>Languages</dt><dd>JavaScript, Python, Java, Kotlin</dd></div>
+                    <div><dt>Testing</dt><dd>Mocha, Supertest</dd></div>
+                    <div><dt>Other tools</dt><dd>React, HTML, CSS, ESP32, Raspberry Pi, Linux, Android Studio, IntelliJ, Visual Studio Code</dd></div>
+                </dl>
+            </div>
+        </section>
+
+        <section id="education" class="section page" aria-labelledby="education-title">
+            <h2 id="education-title" class="section-title">Education</h2>
+            <div class="section-body credentials">
+                <article class="credential">
+                    <h3 class="credential-name">BS in Information Technology, major in Computer Security</h3>
+                    <p>PHINMA University of Pangasinan, 2023 to present</p>
+                    <p class="credential-detail">Relevant coursework: Ethical Hacking, Computer Forensics</p>
+                </article>
+                <article class="credential">
+                    <h3 class="credential-name">Certified Cybersecurity Professional (CCP)</h3>
+                    <p>Appkademiya, issued October 19, 2026</p>
+                    <p class="credential-detail"><a href="https://appkademiya.online/verify/CERT-CCP-CYBERSECURITY-PROFESSIONAL-20261019-12E59F4466FB" rel="noopener">Verify this certificate</a></p>
+                </article>
+            </div>
+        </section>
+
+        <section id="contact" class="section page" aria-labelledby="contact-title">
+            <h2 id="contact-title" class="section-title">Contact</h2>
+            <div class="section-body">
+                <p class="contact-intro">I am looking for on-site internships and entry-level roles in backend development or application security.</p>
+                <p class="contact-email"><a href="mailto:patrick.cruz143cm@gmail.com">patrick.cruz143cm@gmail.com</a></p>
+                <ul class="contact-links">
+                    <li><a href="https://www.linkedin.com/in/cruz-patrick0921/" rel="noopener">LinkedIn</a></li>
+                    <li><a href="https://github.com/Aerythox" rel="noopener">GitHub</a></li>
+                    <li><a href="resume.pdf">Résumé (PDF)</a></li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer page">
+        <p>Built with HTML, CSS, and JavaScript. No trackers or third-party requests.</p>
+    </footer>
 </body>
 </html>
