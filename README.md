@@ -13,7 +13,7 @@ The site uses plain HTML, CSS, and JavaScript, with no framework or build step.
 | `script.js` | Mobile menu, request demo, and active navigation link |
 | `404.html` | Page shown for addresses that do not exist |
 | `assets/fonts/` | Self-hosted IBM Plex fonts, with their license in `OFL.txt` |
-| `assets/img/` | Portrait and social preview image |
+| `assets/img/` | Logo, portrait, and social preview image |
 | `resume.pdf` | Downloadable résumé |
 
 ## Security choices

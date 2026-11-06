@@ -130,11 +130,14 @@ code {
     min-height: var(--header-height);
 }
 
-.monogram {
-    font-weight: 600;
-    font-size: 1.125rem;
-    letter-spacing: -0.02em;
-    text-decoration: none;
+/* The negative margin lines the logo up with the page edge while keeping a 44px tap target. */
+.site-logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    margin-inline-start: -0.5rem;
 }
 
 .site-nav {
