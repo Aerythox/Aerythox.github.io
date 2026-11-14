@@ -64,6 +64,27 @@ window.addEventListener("scroll", () => {
 
 updateHeader();
 
+// Reveal content below the hero as it scrolls into view, once per element.
+const revealTargets = document.querySelectorAll("main > .section .section-title, main > .section .section-body > *");
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+if (!reduceMotion && "IntersectionObserver" in window) {
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("is-visible");
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    // Threshold 0 means any part showing counts, so very tall blocks on small screens still reveal.
+    }, { rootMargin: "0px 0px -8% 0px", threshold: 0 });
+
+    revealTargets.forEach((target) => {
+        target.classList.add("reveal");
+        revealObserver.observe(target);
+    });
+}
+
 traceOptions.forEach((option) => {
     option.addEventListener("click", () => showTrace(option.dataset.trace));
 });

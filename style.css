@@ -44,6 +44,8 @@
     --red: #e8827f;
     --red-deep: #b74b4b;
     --red-wash: #33211f;
+    /* Second hue. Red marks what is blocked; cyan marks what is allowed and what can be followed. */
+    --cyan: #74c7d6;
     --on-red: #ffffff;
 
     --sans: "IBM Plex Sans", system-ui, sans-serif;
@@ -173,7 +175,7 @@ code {
 .site-nav a:hover,
 .site-nav a[aria-current="true"] {
     color: var(--text);
-    border-bottom-color: var(--red);
+    border-bottom-color: var(--cyan);
 }
 
 /* The menu button only appears when script.js can make it work. */
@@ -375,7 +377,7 @@ code {
 
 .trace-option[aria-pressed="true"] {
     background-color: var(--panel-raised);
-    border-color: var(--text-muted);
+    border-color: var(--cyan);
     color: var(--text);
     font-weight: 500;
 }
@@ -469,7 +471,7 @@ html:not(.js) .trace-result,
 
 .step-status {
     text-align: right;
-    color: var(--text-muted);
+    color: var(--cyan);
 }
 
 .trace-steps .is-blocked {
@@ -502,7 +504,7 @@ html:not(.js) .trace-result,
 }
 
 .trace-result code {
-    color: var(--text);
+    color: var(--cyan);
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 500;
     letter-spacing: -0.02em;
@@ -526,7 +528,7 @@ html:not(.js) .trace-result,
 
 /* One short opening sequence on the home page: name, photo, introduction, then the demo. */
 @keyframes rise {
-    from { opacity: 0; transform: translateY(14px); }
+    from { opacity: 0; transform: translateY(28px); }
     to { opacity: 1; transform: none; }
 }
 
@@ -534,12 +536,33 @@ html:not(.js) .trace-result,
 .hero .hero-photo,
 .hero .hero-intro,
 .hero .trace {
-    animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+    animation: rise 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
 }
 
-.hero .hero-photo { animation-delay: 0.08s; }
-.hero .hero-intro { animation-delay: 0.16s; }
-.hero .trace { animation-delay: 0.26s; }
+.hero .hero-photo { animation-delay: 0.15s; }
+.hero .hero-intro { animation-delay: 0.3s; }
+.hero .trace { animation-delay: 0.45s; }
+
+/* Content below the hero rises into place as it scrolls into view, once. script.js adds these classes,
+   so without JavaScript, or with reduced motion, everything is simply visible. */
+.js .reveal {
+    opacity: 0;
+    transform: translateY(32px);
+    transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+.js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Printing never scrolls, so show everything. */
+@media print {
+    .js .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
 
 /* On wide screens each section title stays in view while its content scrolls past. */
 @media (min-width: 60.0625rem) {
@@ -576,8 +599,14 @@ html:not(.js) .trace-result,
     transition: color 0.15s ease;
 }
 
-.section-body a:hover {
-    color: var(--red);
+.section-body a,
+.trace-note a {
+    color: var(--cyan);
+}
+
+.section-body a:hover,
+.trace-note a:hover {
+    color: var(--text);
 }
 
 /* Projects */
@@ -667,7 +696,7 @@ html:not(.js) .trace-result,
 }
 
 .case-block li::marker {
-    color: var(--text-muted);
+    color: var(--cyan);
 }
 
 /* Label and value rows, matching the rows in the request trace. */
@@ -749,8 +778,14 @@ html:not(.js) .trace-result,
 }
 
 .contact-email a {
+    color: var(--text);
+    text-decoration-color: var(--cyan);
     text-decoration-thickness: 1px;
     text-underline-offset: 0.15em;
+}
+
+.contact-email a:hover {
+    color: var(--cyan);
 }
 
 .contact-links {
