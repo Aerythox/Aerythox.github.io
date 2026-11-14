@@ -115,12 +115,28 @@ code {
 
 /* Header */
 
+/* The header is translucent and blurs what scrolls under it. Its bottom line appears once the page is scrolled. */
 .site-header {
     position: sticky;
     top: 0;
     z-index: 10;
     background-color: var(--ink);
     border-bottom: 1px solid var(--rule);
+    transition: background-color 0.25s ease, border-color 0.25s ease;
+}
+
+@supports ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .js .site-header {
+        background-color: rgba(18, 22, 27, 0.72);
+        -webkit-backdrop-filter: blur(14px) saturate(140%);
+        backdrop-filter: blur(14px) saturate(140%);
+        border-bottom-color: transparent;
+    }
+
+    .js .site-header.is-scrolled {
+        background-color: rgba(18, 22, 27, 0.84);
+        border-bottom-color: var(--rule);
+    }
 }
 
 .site-header-inner {
@@ -372,6 +388,25 @@ code {
     display: none;
 }
 
+/* With JavaScript, both cases share one grid cell and cross-fade. The hidden case is also hidden from
+   screen readers and the keyboard through visibility. Sharing a cell keeps the panel height steady. */
+.js .trace-cases {
+    display: grid;
+}
+
+.js .trace-case {
+    grid-area: 1 / 1;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0s linear 0.3s;
+}
+
+.js .trace-case.is-active {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.3s ease, visibility 0s;
+}
+
 .trace-explain {
     max-width: 44rem;
     color: var(--text-muted);
@@ -401,7 +436,22 @@ code {
     font-size: 0.9375rem;
     line-height: 1.4;
     border-bottom: 1px solid var(--rule);
-    animation: step-in 0.2s ease both;
+}
+
+/* Rows replay their sequence each time a case becomes active. Without JavaScript they play once on load. */
+html:not(.js) .trace-steps li,
+.trace-case.is-active .trace-steps li,
+html:not(.js) .trace-result,
+.trace-case.is-active .trace-result {
+    animation-name: step-in;
+    animation-duration: 0.2s;
+    animation-timing-function: ease;
+    animation-fill-mode: both;
+}
+
+html:not(.js) .trace-result,
+.trace-case.is-active .trace-result {
+    animation-delay: 0.7s;
 }
 
 .trace-steps li:nth-child(2) { animation-delay: 0.14s; }
@@ -449,7 +499,6 @@ code {
     margin-top: 1rem;
     color: var(--text-muted);
     font-size: 0.9375rem;
-    animation: step-in 0.2s ease 0.7s both;
 }
 
 .trace-result code {
@@ -473,6 +522,32 @@ code {
 @keyframes step-in {
     from { opacity: 0; }
     to { opacity: 1; }
+}
+
+/* One short opening sequence on the home page: name, photo, introduction, then the demo. */
+@keyframes rise {
+    from { opacity: 0; transform: translateY(14px); }
+    to { opacity: 1; transform: none; }
+}
+
+.hero .hero-name,
+.hero .hero-photo,
+.hero .hero-intro,
+.hero .trace {
+    animation: rise 0.6s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.hero .hero-photo { animation-delay: 0.08s; }
+.hero .hero-intro { animation-delay: 0.16s; }
+.hero .trace { animation-delay: 0.26s; }
+
+/* On wide screens each section title stays in view while its content scrolls past. */
+@media (min-width: 60.0625rem) {
+    .section-title {
+        position: sticky;
+        top: calc(var(--header-height) + 2rem);
+        align-self: start;
+    }
 }
 
 /* Page sections */

@@ -40,7 +40,7 @@
         <section id="top" class="hero page">
             <div class="hero-top">
                 <h1 class="hero-name">Patrick Cruz</h1>
-                <img class="hero-photo" src="assets/img/patrick-cruz.jpg" width="391" height="391" alt="Portrait of Patrick Cruz">
+                <img class="hero-photo" src="assets/img/patrick-cruz.jpg" width="586" height="586" alt="Portrait of Patrick Cruz">
             </div>
 
             <div class="hero-grid">
@@ -73,6 +73,7 @@
                         <button type="button" class="trace-option" data-trace="valid" aria-pressed="false">Valid request</button>
                     </div>
 
+                    <div class="trace-cases">
                     <div class="trace-case" data-trace-case="changed">
                         <p class="trace-explain">An authenticated user changes the account number in the URL to access another user's records. The login is valid, so only the authorization check can stop the request.</p>
                         <p class="trace-request"><code>GET /accounts/4822/statements</code></p>
@@ -97,6 +98,8 @@
                             <li><span class="step-name">Database query</span><span class="step-detail">Parameterized query executed</span><span class="step-status">Passed</span></li>
                         </ol>
                         <p class="trace-result"><code>200 OK</code><span>Records returned.</span></p>
+                    </div>
+
                     </div>
 
                     <p class="trace-note">Illustrative example. No data is sent to a server. <a href="#polarizer">Polarizer</a>, below, automates this check.</p>

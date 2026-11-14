@@ -36,9 +36,33 @@ function showTrace(name) {
         option.setAttribute("aria-pressed", String(option.dataset.trace === name));
     });
     traceCases.forEach((traceCase) => {
-        traceCase.hidden = traceCase.dataset.traceCase !== name;
+        const isActive = traceCase.dataset.traceCase === name;
+        traceCase.classList.remove("is-active");
+        if (isActive) {
+            // Reading layout between removing and adding the class restarts the row sequence.
+            void traceCase.offsetWidth;
+            traceCase.classList.add("is-active");
+        }
     });
 }
+
+// Header: show its bottom line once the page has scrolled.
+const siteHeader = document.querySelector(".site-header");
+let headerTicking = false;
+
+function updateHeader() {
+    siteHeader.classList.toggle("is-scrolled", window.scrollY > 8);
+    headerTicking = false;
+}
+
+window.addEventListener("scroll", () => {
+    if (!headerTicking) {
+        headerTicking = true;
+        requestAnimationFrame(updateHeader);
+    }
+}, { passive: true });
+
+updateHeader();
 
 traceOptions.forEach((option) => {
     option.addEventListener("click", () => showTrace(option.dataset.trace));
