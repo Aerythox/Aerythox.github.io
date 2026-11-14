@@ -99,7 +99,7 @@
                         <p class="trace-result"><code>200 OK</code><span>Records returned.</span></p>
                     </div>
 
-                    <p class="trace-note">Illustrative example. No data is sent to a server.</p>
+                    <p class="trace-note">Illustrative example. No data is sent to a server. <a href="#polarizer">Polarizer</a>, below, automates this check.</p>
                 </section>
             </div>
         </section>
@@ -107,7 +107,55 @@
         <section id="work" class="section page" aria-labelledby="work-title">
             <h2 id="work-title" class="section-title">Selected work</h2>
             <div class="section-body">
-                <article class="project project-featured">
+                <article id="polarizer" class="project project-featured">
+                    <h3 class="project-name">Polarizer</h3>
+                    <p class="project-meta">Open-source project, 2026</p>
+                    <p class="project-summary">A command-line scanner that finds broken API authorization by replaying requests as different users, plus a deliberately vulnerable invoicing API to prove it works.</p>
+                    <dl class="facts">
+                        <div><dt>My role</dt><dd>Sole developer, built with AI assistance as noted in the repository.</dd></div>
+                        <div><dt>Stack</dt><dd>Python, httpx, pytest, Node.js, Express, MongoDB, Docker Compose, GitHub Actions</dd></div>
+                        <div><dt>Source</dt><dd><a href="https://github.com/Aerythox/Polarizer" rel="noopener">github.com/Aerythox/Polarizer</a></dd></div>
+                    </dl>
+
+                    <div class="case-details">
+                        <div class="case-block case-block-wide">
+                            <h4>How it works</h4>
+                            <ol>
+                                <li>It reads an OpenAPI spec and tokens for two or three test users.</li>
+                                <li>It replays each request as a different user and compares the responses.</li>
+                                <li>It reports each authorization failure in Markdown and JSON, with evidence and an OWASP API Top 10 mapping.</li>
+                                <li>It exits with code 1 when it finds a problem, so it can fail a CI build.</li>
+                            </ol>
+                        </div>
+
+                        <div class="case-block">
+                            <h4>What it checks</h4>
+                            <ul>
+                                <li>One user reading another user's records (broken object level authorization).</li>
+                                <li>Normal users reaching admin-only routes (broken function level authorization).</li>
+                                <li>Users setting protected fields such as their own role (mass assignment).</li>
+                                <li>Protected routes that answer without a login.</li>
+                                <li>Tokens signed with a guessable secret, checked offline.</li>
+                            </ul>
+                        </div>
+
+                        <div class="case-block">
+                            <h4>Safety and proof</h4>
+                            <ul>
+                                <li>Scans only localhost unless a host is explicitly allowed, and rate limits every request.</li>
+                                <li>Makes changes only when permitted, restores them afterward, and never writes tokens to reports.</li>
+                                <li>CI starts the lab and requires the scanner to flag the vulnerable build and pass the fixed build.</li>
+                            </ul>
+                        </div>
+
+                        <div class="case-block case-block-wide">
+                            <h4>Attack chain</h4>
+                            <p class="case-text">In a self-assessment of the lab, a normal user read other users' invoices, listed every account through an admin route with no role check, and gave themselves the admin role. A guessable signing secret offered a second route to the same takeover. <a href="https://github.com/Aerythox/Polarizer/blob/main/docs/pentest-report.md" rel="noopener">Read the pentest report</a>.</p>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project project-featured project-next">
                     <h3 class="project-name">HabiTrash</h3>
                     <p class="project-meta">Capstone project, 2025 to 2026</p>
                     <p class="project-summary">A smart waste bin that photographs each item, classifies it with AI, and sorts it into one of four compartments. Sensors track how full each compartment is, and authorized staff monitor the bins from a website and an Android app.</p>
@@ -190,11 +238,11 @@
             <div class="section-body">
                 <dl class="facts facts-large">
                     <div><dt>Backend</dt><dd>Node.js, Express.js, REST APIs, Socket.IO, FastAPI, PHP</dd></div>
-                    <div><dt>Security</dt><dd>JWT authentication, role-based access control, rate limiting, input validation, audit logging, Kali Linux, basic networking, Cisco Packet Tracer</dd></div>
+                    <div><dt>Security</dt><dd>OWASP API Security Top 10, authorization testing, JWT authentication, role-based access control, rate limiting, input validation, audit logging, Kali Linux, basic networking, Cisco Packet Tracer</dd></div>
                     <div><dt>Data and AI</dt><dd>MongoDB, Mongoose, MySQL, phpMyAdmin, PyTorch, TensorFlow Lite, Gemini API</dd></div>
                     <div><dt>Languages</dt><dd>JavaScript, Python, Java, Kotlin</dd></div>
-                    <div><dt>Testing</dt><dd>Mocha, Supertest</dd></div>
-                    <div><dt>Other tools</dt><dd>React, HTML, CSS, ESP32, Raspberry Pi, Linux, Android Studio, IntelliJ, Visual Studio Code</dd></div>
+                    <div><dt>Testing</dt><dd>pytest, Mocha, Supertest</dd></div>
+                    <div><dt>Other tools</dt><dd>Docker Compose, GitHub Actions, React, HTML, CSS, ESP32, Raspberry Pi, Linux, Android Studio, IntelliJ, Visual Studio Code</dd></div>
                 </dl>
             </div>
         </section>

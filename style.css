@@ -553,6 +553,25 @@ code {
     grid-column: 1 / -1;
 }
 
+.case-text {
+    max-width: 48rem;
+    margin-top: 0.75rem;
+    font-size: 1rem;
+    line-height: 1.55;
+}
+
+.project-next {
+    margin-top: clamp(3.5rem, 6vw, 5.5rem);
+    padding-top: clamp(3rem, 5vw, 4.5rem);
+    border-top: 1px solid var(--rule);
+}
+
+.trace-note a,
+.case-text a,
+.facts a {
+    text-underline-offset: 0.2em;
+}
+
 .case-block h4 {
     font-size: 1.125rem;
     font-weight: 600;
